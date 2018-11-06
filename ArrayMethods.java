@@ -25,7 +25,7 @@ public class ArrayMethods {
     //Part 2
     //returns an array of the row sums for each row of ary.
    //Index i of the return array contains the sum of elements in row i.
-    public static int[] allRowSum(int [][] ary) {
+    public static int[] allRowSums(int [][] ary) {
       int[] count = new int[ary.length];
         for (int i = 0; i < ary.length; i++) {
           count [i] = rowSum(ary, i);
@@ -49,12 +49,25 @@ public class ArrayMethods {
     return count;
   }
 
+  //Part 3
+  //checks if the array is row-magic (this means that every row has the same row sum).
+  public static boolean isRowMagic(int [][] ary) {
+    int[] count = allRowSums(ary);
+    for (int i = 0; i < count.length - 1; i++) {
+      if (count[i] != count[i+1])
+      return false;
+    }
+    return true;
+  }
 
-
-
-
-
-
-
+  //checks if the array is column-magic (this means that every column has the same column sum).
+  public static boolean isColumnMagic(int[][] ary) {
+    int[] count =  allColSums(ary);
+    for(int i = 0; i < count.length - 1; i++) {
+      if (count[i] != count[i+1])
+      return false;
+    }
+    return true;
+  }
 
 }
