@@ -15,10 +15,13 @@ public class ArrayMethods {
   public static int columnSum (int[][] ary, int x) {
     int count = 0;
     for (int i = 0; i < ary.length; i++) {
-      if (x < ary[x].length) {
-      count += ary[x][i];
-      }
+      if (x >= ary[i].length) {
+      count += 0;
     }
+    else {
+      count += ary[i][x];
+    }
+  }
       return count;
     }
 
@@ -39,11 +42,12 @@ public class ArrayMethods {
     public static int[] allColSums(int[][] ary) {
       int len = 0;
       for (int i = 0; i < ary.length; i++) {
-        if (ary[i].length > len)
-        len = ary.length;
+        if (ary[i].length > len) {
+        len = ary[i].length;
     }
+  }
     int[] count = new int[len];
-    for (int i = 0; i < count.length; i++) {
+    for (int i = 0; i < len; i++) {
       count[i] = columnSum(ary, i);
     }
     return count;
